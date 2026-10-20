@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="SkipLink — Paste. Check. Go. A simple way to check a link before opening it.">
+  <meta property="og:title" content="SkipLink — Paste. Check. Go.">
+  <meta property="og:description" content="A cleaner way to check and open links. No account needed.">
+  <title>SkipLink — Paste. Check. Go.</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1020;--panel:#121a2e;--line:#283653;--text:#f5f7ff;--muted:#a8b4cc;--blue:#60a5fa;--purple:#a78bfa}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 82% 0%,#27366b 0,transparent 36%),radial-gradient(ellipse at 0% 35%,#142c43 0,transparent 32%),var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    .wrap{width:min(760px,100%);margin:auto;padding:32px 18px 60px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:22px;letter-spacing:-.5px}
+    .mark{display:grid;place-items:center;width:44px;height:44px;border-radius:15px;background:linear-gradient(135deg,var(--blue),var(--purple));font-size:25px}
+    .hero{padding:44px 0 24px}.pill{display:inline-block;padding:5px 11px;border:1px solid #44628d;border-radius:99px;background:#1b3150;color:#bfdbfe;font-size:12px;font-weight:700}
+    h1{font-size:clamp(2.2rem,8vw,4rem);line-height:1.05;letter-spacing:-2px;margin:18px 0 14px}h1 span{background:linear-gradient(95deg,#93c5fd 5%,#c4b5fd 55%,#6ee7d8 100%);-webkit-background-clip:text;background-clip:text;color:transparent}.signature{display:inline-block;margin-top:18px;color:#dbeafe;font-weight:850;letter-spacing:2px;font-size:12px}.promo{text-align:center;padding:20px;border:1px solid #344365;border-radius:20px;background:linear-gradient(110deg,#172849,#1d1a3b)}.muted{color:var(--muted)}.hero{text-align:center}.hero p{max-width:560px}
+    .panel,.feature,.faq{background:#172235d9;border:1px solid var(--line);border-radius:22px}.panel{padding:16px;box-shadow:0 18px 60px #0002}
+    label{display:block;font-size:14px;font-weight:650;margin:0 0 8px}.inputrow{display:flex;gap:8px;padding:6px;border:1px solid #35445c;background:#0e1726;border-radius:15px}
+    input[type=url]{min-width:0;flex:1;background:transparent;border:0;outline:0;color:var(--text);padding:12px;font:inherit}button{cursor:pointer;border:0;border-radius:12px;font:inherit;font-weight:700;padding:11px 15px}
+    .secondary{background:#2a3850;color:var(--text)}.primary{width:100%;margin-top:16px;padding:14px;background:linear-gradient(100deg,#3b82f6,#8b5cf6);color:white;font-size:17px}
+    button:hover{filter:brightness(1.08)}button:active{transform:scale(.98)}button:focus-visible,input:focus-visible{outline:2px solid #93c5fd;outline-offset:3px}.options{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+    .choice{border:1px solid var(--line);background:#202d42;color:var(--muted);border-radius:99px;padding:8px 13px;font-size:13px}.choice[aria-pressed=true]{background:#284c7e;border-color:#60a5fa;color:white}
+    .switchrow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0 0;color:var(--muted);font-size:14px}.switch{width:44px;height:25px;padding:3px;border-radius:99px;background:#40506a;display:inline-flex;align-items:center}.switch span{height:19px;width:19px;background:white;border-radius:50%;transition:transform .15s}.switch[aria-checked=true]{background:#2563eb}.switch[aria-checked=true] span{transform:translateX(19px)}
+    .notice{display:none;margin-top:14px;padding:12px 14px;border-radius:12px;background:#102c29;border:1px solid #25665b;color:#bbf7d0;overflow-wrap:anywhere}.notice.error{background:#351c27;border-color:#854154;color:#fecdd3}.notice a{color:#bfdbfe;overflow-wrap:anywhere}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}.feature{padding:17px}.number{font-size:24px;font-weight:800;color:#93c5fd}.feature p{margin:4px 0 0;font-size:14px;color:var(--muted)}
+    section.more{margin-top:52px}h2{font-size:24px;letter-spacing:-.5px}.features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.feature h3{margin:6px 0;font-size:16px}.faq{padding:15px;margin-top:10px}.faq summary{cursor:pointer;font-weight:700}.faq p{color:var(--muted);margin-bottom:0}
+    footer{text-align:center;color:var(--muted);font-size:12px;margin-top:48px}
+    @media(max-width:520px){.wrap{padding-top:20px}.hero{padding-top:34px}.inputrow{flex-wrap:wrap}.inputrow input{flex-basis:100%}.inputrow button{flex:1}.grid{grid-template-columns:1fr}.features{grid-template-columns:1fr}.panel{padding:12px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="brand"><span class="mark" aria-hidden="true">↗</span><span>SkipLink</span></header>
+    <section class="hero">
+      <span class="pill">YOUR LINK, YOUR CHOICE</span>
+      <h1>Less guessing.<br><span>More going.</span></h1>
+      <p class="muted">Paste a URL, check the address, and open it when you’re ready. A clean, lightweight link tool that keeps things simple.</p>
+    <div class="signature">PASTE. CHECK. GO.</div>
+    </section>
+
+    <form class="panel" id="link-form" novalidate>
+      <label for="url">Ready to open a link?</label>
+      <div class="inputrow">
+        <input id="url" name="url" type="text" inputmode="url" autocomplete="url" placeholder="example.com or paste any link" aria-describedby="hint" required>
+        <button class="secondary" type="button" id="paste-btn">Paste link</button>
+      </div>
+      <p id="hint" class="muted" style="font-size:12px;margin:8px 3px 0">Paste a web address, with or without http:// or https://. App links may need the relevant app installed.</p>
+      <div class="switchrow">
+        <span>Open in a new tab</span>
+        <button type="button" id="auto-switch" class="switch" role="switch" aria-checked="true" aria-label="Open in a new tab"><span></span></button>
+      </div>
+      <button class="primary" type="submit">Check &amp; open link ↗</button>
+      <div id="notice" class="notice" role="status" aria-live="polite"></div>
+    </form>
+
+    <div class="grid" aria-label="How it works">
+      <div class="feature"><div class="number">1</div><strong>Paste</strong><p>Add the link you want to open.</p></div>
+      <div class="feature"><div class="number">2</div><strong>Check</strong><p>Review the destination address before continuing.</p></div>
+      <div class="feature"><div class="number">3</div><strong>Go</strong><p>Open the link if you trust the destination.</p></div>
+    </div>
+
+    <section class="more">
+      <h2>Small tool. Clear purpose.</h2><p class="muted">Built to feel quick, simple, and easy to remember.</p>
+      <div class="features">
+        <div class="feature"><div aria-hidden="true">🔗</div><h3>Quick URL check</h3><p>Flags incomplete or unsupported URL formats before opening.</p></div>
+        <div class="feature"><div aria-hidden="true">📱</div><h3>Made for any screen</h3><p>A responsive layout for phones, tablets, and desktops.</p></div>
+        <div class="feature"><div aria-hidden="true">🛡️</div><h3>Privacy-minded by design</h3><p>This static page does not send your entered URL to a SkipLink server.</p></div>
+        <div class="feature"><div aria-hidden="true">⚡</div><h3>No account needed</h3><p>Open the page and use the tool. No sign-up flow.</p></div>
+      </div>
+    </section>
+    <section class="more">
+      <h2>Good to know</h2>
+      <details class="faq"><summary>Does SkipLink automatically bypass ads or redirects?</summary><p>No. This static version checks the URL format and opens the address you enter. It does not automatically process redirect chains, bypass CAPTCHA, or get around login pages.</p></details>
+      <details class="faq"><summary>How do I stay safe when opening links?</summary><p>Check the domain carefully. Avoid entering passwords or personal details on unfamiliar sites, and do not download files unless you trust the source.</p></details>
+    </section>
+    <section class="more promo"><h2>Know a friend who needs this?</h2><p class="muted">Share SkipLink with someone who likes keeping things simple.</p><button type="button" class="secondary" id="share-btn">Share SkipLink ↗</button></section><footer>SkipLink · Paste. Check. Go.<br>Always check a link before you trust it.</footer>
+  </main>
+  <script>
+    (() => {
+      const form = document.getElementById('link-form');
+      const input = document.getElementById('url');
+      const paste = document.getElementById('paste-btn');
+      const toggle = document.getElementById('auto-switch');
+      const notice = document.getElementById('notice');
+      const share = document.getElementById('share-btn');
+      let openNewTab = true;
+
+      function message(text, isError = false) {
+        notice.className = 'notice' + (isError ? ' error' : '');
+        notice.textContent = text;
+        notice.style.display = 'block';
+      }
+      toggle.addEventListener('click', () => {
+        openNewTab = !openNewTab;
+        toggle.setAttribute('aria-checked', String(openNewTab));
+      });
+      paste.addEventListener('click', async () => {
+        try {
+          if (!navigator.clipboard || !navigator.clipboard.readText) throw new Error('Clipboard access is unavailable.');
+          const value = await navigator.clipboard.readText();
+          if (value) { input.value = value.trim(); input.focus(); message('Link pasted. Check the domain before opening it.'); }
+          else message('Your clipboard is empty.', true);
+        } catch (_) {
+          message('Automatic paste is unavailable here. Press and hold the field, then choose Paste.', true);
+          input.focus();
+        }
+      });
+      share.addEventListener('click', async () => {
+        const data = {title: 'SkipLink — Paste. Check. Go.', text: 'A simple way to check a link before opening it.', url: window.location.href};
+        try {
+          if (navigator.share) await navigator.share(data);
+          else if (navigator.clipboard && navigator.clipboard.writeText) { await navigator.clipboard.writeText(window.location.href); message('Site link copied. Send it to a friend!'); }
+          else message('Copy the website address from your browser and share it with a friend.');
+        } catch (err) { if (err && err.name !== 'AbortError') message('Could not open the share menu. Copy the website address from your browser instead.', true); }
+      });
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        let url;
+        try {
+          let raw = input.value.trim();
+          if (!raw) throw new Error('Enter a link first.');
+          // Treat plain domains and www addresses as secure web URLs by default.
+          if (!/^[a-zA-Z][a-zA-Z\d+.-]*:/.test(raw) && !raw.startsWith('//')) {
+            raw = 'https://' + raw;
+          } else if (raw.startsWith('//')) {
+            raw = 'https:' + raw;
+          }
+          url = new URL(raw);
+          // Block browser-dangerous schemes; other schemes may open an installed app.
+          if (['javascript:', 'data:', 'file:', 'vbscript:'].includes(url.protocol.toLowerCase())) {
+            throw new Error('This link type is blocked for safety. Use a normal website link instead.');
+          }
+          if (['http:', 'https:'].includes(url.protocol.toLowerCase()) && !url.hostname) {
+            throw new Error('That web address looks incomplete.');
+          }
+        } catch (err) {
+          message(err.message || 'That URL format is not valid.', true);
+          return;
+        }
+        message('Ready to open: ' + url.href + ' — check the destination first. App links may require an installed app.');
+        if (openNewTab) {
+          const opened = window.open(url.href, '_blank', 'noopener,noreferrer');
+          if (!opened) message('Your browser blocked the new tab. Allow pop-ups for this site, or turn off “Open in a new tab” and try again.', true);
+        } else {
+          window.location.assign(url.href);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
